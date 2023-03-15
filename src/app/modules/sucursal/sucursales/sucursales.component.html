@@ -1,0 +1,35 @@
+<div nz-row nzJustify="space-between">
+    <div nz-col nzSpan="4">
+        <h3>Sucursales</h3>
+    </div>
+    <div nz-col nzSpan="4"><button nz-button nzType="primary" (click)="nuevo()"> <span nz-icon nzType="plus"></span> Agregar </button></div>
+</div>
+<nz-divider nzPlain nzOrientation="left"></nz-divider>
+<nz-table #basicTable [nzData]="listOfDisplayData" [nzLoading]="loading">
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Identificación</th>
+            <th>Descripción</th>
+            <th>Dirección</th>
+            <th>Moneda</th>
+            <th>Fecha Registro</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of basicTable.data">
+            <td>{{ data.sucCodigo }}</td>
+            <td>{{ data.sucIdentificacion }}</td>
+            <td>{{ data.sucDescripcion }}</td>
+            <td>{{ data.sucDireccion }}</td>
+            <td>{{ data.mndNombre }}</td>
+            <td>{{ data.sucFchReg | date: 'dd/MM/yyyy'}}</td>
+            <td>
+                <a (click)="Borrar(data.sucCodigo)">Borrar</a>
+                <nz-divider nzType="vertical"></nz-divider>
+                <a (click)="actualizar(data.sucCodigo)">Actualizar</a>
+            </td>
+        </tr>
+    </tbody>
+</nz-table>

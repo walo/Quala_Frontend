@@ -1,0 +1,20 @@
+<nz-divider nzOrientation="left" [nzText]="titulo"></nz-divider>
+<form nz-form [nzLayout]="'vertical'" [formGroup]="monedaForm" (ngSubmit)="submitForm()">
+    <div nz-row="" class="ant-row">
+        <div class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-12 ant-col-lg-8 ant-col-xl-6 ant-col-xxl-6 mx-2">
+            <nz-form-item>
+                <nz-form-label nzFor="Telefono" nzRequired>Nombre:</nz-form-label>
+                <nz-form-control nzSpan="23">
+                    <input nz-input type="text" formControlName="mndNombre">
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+    <nz-divider nzOrientation="left"></nz-divider>
+    <div nz-row="" class="ant-row mt-2" nzAlign="middle" nzJustify="center">
+        <nz-button-group nzSize="default">
+            <button nz-button type="submit" nzType="primary" [disabled]="monedaForm.invalid">Confirmar</button>
+            <button nz-button type="button" nzType="primary" nzDanger [routerLink]="['/moneda']">Cancelar</button>
+        </nz-button-group>
+    </div>
+</form>

@@ -1,0 +1,67 @@
+<nz-divider nzOrientation="left" [nzText]="titulo"></nz-divider>
+<form nz-form [nzLayout]="'vertical'" [formGroup]="sucForm" (ngSubmit)="submitForm()">
+    <div nz-row class="ant-row">
+        <div class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-7 ant-col-lg-7 ant-col-xl-7 ant-col-xxl-7 mx-2">
+            <nz-form-item>
+                <nz-form-label nzFor="sucCodigo" nzRequired>Código</nz-form-label>
+                <nz-form-control nzSpan="23">
+                    <input nz-input type="text" formControlName="sucCodigo">
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+        <div class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-7 ant-col-lg-7 ant-col-xl-7 ant-col-xxl-7 mx-2">
+            <nz-form-item>
+                <nz-form-label nzFor="sucIdentificacion" nzRequired>Identificación</nz-form-label>
+                <nz-form-control nzSpan="23">
+                    <input nz-input type="text" formControlName="sucIdentificacion">
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+        <div class="ant-col ant-col-xs-24 ant-col-sm-12 ant-col-md-7 ant-col-lg-7 ant-col-xl-7 ant-col-xxl-7 mx-2">
+            <nz-form-item>
+                <nz-form-label nzFor="sucDescripcion" nzRequired>Descripción</nz-form-label>
+                <nz-form-control nzSpan="24">
+                    <input nz-input type="text" formControlName="sucDescripcion">
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+    <div nz-row class="ant-row">
+        <div class="ant-col ant-col-xs-24 ant-col-sm-24 ant-col-md-21 ant-col-lg-21 ant-col-xl-21 ant-col-xxl-12 mx-2">
+            <nz-form-item>
+                <nz-form-label nzFor="sucDireccion" nzRequired>Dirección</nz-form-label>
+                <nz-form-control nzSpan="24">
+                    <input nz-input type="text" formControlName="sucDireccion">
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+    <div nz-row="" class="ant-row">
+        <div class="ant-col ant-col-xs-24 ant-col-sm-11 ant-col-md-11 ant-col-lg-11 ant-col-xl-11 ant-col-xxl-11 mx-2">
+            <nz-form-item>
+                <nz-form-label nzFor="mndNombre" nzRequired>Moneda</nz-form-label>
+                <nz-form-control nzSpan="22">
+
+                    <nz-select id="mndId" formControlName="mndId" nzPlaceHolder="seleccione moneda">
+                        <nz-option *ngFor="let moneda of monedas" [nzLabel]="moneda.mndNombre" [nzValue]="moneda.mndId"></nz-option>
+                    </nz-select>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+        <div class="ant-col ant-col-xs-24 ant-col-sm-11 ant-col-md-11 ant-col-lg-11 ant-col-xl-11 ant-col-xxl-11 mx-2">
+            <nz-form-item>
+                <nz-form-label nzFor="sucFchReg" nzRequired>Fecha de registro</nz-form-label>
+                <nz-form-control nzSpan="22">
+                    <input nz-input type="date" id="sucFchReg" formControlName="sucFchReg" disable>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+    </div>
+    <nz-divider nzOrientation="left"></nz-divider>
+    <div nz-row="" class="ant-row mt-2" nzAlign="middle" nzJustify="center">
+        <nz-button-group nzSize="default">
+            <button nz-button type="submit" nzType="primary" [disabled]="formularioValido">Confirmar</button>
+            <button nz-button type="button" nzType="primary" nzDanger [routerLink]="['/sucursal']">Cancelar</button>
+        </nz-button-group>
+    </div>
+</form>
